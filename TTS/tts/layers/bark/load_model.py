@@ -91,6 +91,8 @@ def clear_cuda_cache():
         torch.cuda.synchronize()
 
 
+torch.serialization.add_safe_globals([GPTConfig, FineGPTConfig])
+
 def load_model(ckpt_path, device, config, model_type="text"):
     logger.info(f"loading {model_type} model from {ckpt_path}...")
 
